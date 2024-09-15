@@ -11,7 +11,7 @@ const authServices = {
         return await instance.get('/auth/me', data);
     },
     logout: async (data) => {
-        return await instance.post('/auth/logout');
+        return await instance.post('/auth/logout', data);
     },
     forgotpassword: async (data) => {
         return await instance.post('auth/forgot-password', data);

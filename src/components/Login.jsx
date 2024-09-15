@@ -14,7 +14,7 @@ const Login = () => {
     if (user) {
       navigate('/dashboard');
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const email = useSelector(selectEmail);
   const password = useSelector(selectPassword);
@@ -25,6 +25,10 @@ const Login = () => {
     authServices.login({ email, password })
       .then(response => {
         alert(response.data.message);
+
+        if (response.data.token) {
+          localStorage.setItem('token', response.data.token);
+        }
 
         dispatch(setEmail(''));
         dispatch(setPassword(''));
