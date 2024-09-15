@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseurl = 'https://password-reset-be-1-exn2.onrender.com';
+const baseurl = process.env.REACT_APP_API_URL;
 
 const instance = axios.create({
     baseURL: baseurl,
